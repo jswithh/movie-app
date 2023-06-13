@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('package_id')->constrained('packages')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->bigInteger('package_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->float('amount', 8, 2);
             $table->string('transaction_code')->unique();
             $table->string('status');
